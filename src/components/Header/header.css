@@ -1,3 +1,20 @@
 header {
     background-color: #2F3644;
 }
+
+button {
+    padding: 1rem 1.5rem;
+    
+    border-radius: 8px;
+    border: 0;
+    background: var(--blue-500);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: backgroun-color 0.1s;
+}
+
+button:hover {
+    transition: 0.2s;
+    background-color: var(--green-300);
+}

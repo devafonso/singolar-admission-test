@@ -1,5 +1,5 @@
 header {
-    background-color: #2F3644;
+    background-color: var(--gray-800);
 }
 
 .container {
@@ -22,22 +22,18 @@ header {
 }
 
 .btn-newPost button{
-    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
     
-    font-weight: 700;
-
-    background-color: #447CE2;
+    border-radius: 8px;
     border: 0;
-
-    color: #fff;
-
-    padding: 10px 20px;
-    border-radius: 10px;
-
+    background: var(--green-500);
+    color: var(--white);
+    font-weight: bold;
     cursor: pointer;
+    transition: backgroun-color 0.1s;
 }
 
 .btn-newPost button:hover {
     transition: 0.2s;
-    background-color: #538af0;
+    background-color: var(--green-300);
 }

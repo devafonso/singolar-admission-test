@@ -1,6 +1,5 @@
 main header {
     display: flex;
-    flex-direction: row;
 }
 
 .cards .card h2 {
@@ -45,6 +44,7 @@ main .cards .card {
 
 .cards .card header {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 
     margin-bottom: 15px;

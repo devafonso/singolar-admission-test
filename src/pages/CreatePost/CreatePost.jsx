@@ -47,7 +47,7 @@ function CreatePost() {
       <Header></Header>
       <main>
         <div className="card-post">
-          <h1>Criar postagem</h1>
+          <h1>Nova Postagem</h1>
           <div className="line-post"></div>
           <div className="card-body-post"></div>
 
@@ -67,8 +67,9 @@ function CreatePost() {
               <p className="error-message">{errors.description?.message}</p>
             </div>
             <div className="fields">
-              <label>Conteudo</label>
+              <label>Conteúdo</label>
               <textarea
+              placeholder="No que vocë está pensando?..."
                 type="text"
                 name="content"
                 {...register("content")}
