@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
 import axios from "axios";
 
 import "./profile.css";
@@ -72,7 +73,11 @@ function Profile() {
                     <a href="">Albuns</a>
                   </li>
                 </ul>
+                <Link to="/">
                 <button>Voltar</button>
+
+                </Link>
+                
               </nav>
 
               <div className="photos">

@@ -2,6 +2,16 @@ header {
     background-color: var(--gray-800);
 }
 
+.linkProfile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.name {
+    margin-left: 1.5rem;
+}
+
 .container {
     display: flex;
     align-items: center;
@@ -30,7 +40,7 @@ header {
     color: var(--white);
     font-weight: bold;
     cursor: pointer;
-    transition: backgroun-color 0.1s;
+    transition: background-color 0.1s;
 }
 
 .btn-newPost button:hover {

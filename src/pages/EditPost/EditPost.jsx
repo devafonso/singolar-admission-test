@@ -12,10 +12,6 @@ import * as yup from "yup";
 const validationPost = yup.object().shape({
   title: yup.string().required("O título é obrigatório"),
 
-  description: yup
-    .string()
-    .required("A descrição é obrigatório")
-    .max(150, "A descrição precisa ter menosde 150 caracteres"),
   body: yup
     .string()
     .required("O conteúdo é obrigatório")
@@ -69,17 +65,9 @@ function EditPost() {
               <input type="text" name="title" {...register("title")}></input>
               <p className="error-message">{errors.title?.message}</p>
             </div>
+
             <div className="fields">
-              <label>Descricao</label>
-              <input
-                type="text"
-                name="description"
-                {...register("description")}
-              ></input>
-              <p className="error-message">{errors.description?.message}</p>
-            </div>
-            <div className="fields">
-              <label>Conteudo</label>
+              <label>Descrição</label>
               <textarea
                 type="text"
                 name="body"

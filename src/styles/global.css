@@ -1,3 +1,6 @@
+
+@import '@sweetalert2/theme-borderless/borderless.css';
+
 :root {
     --white: #ffffff;
     --gray-100: #e1e1e6;
@@ -14,6 +17,7 @@
     --red-500: #f75a68;
 
     --blue-500: #4589F7;
+    --blue-200: #00a9d4;
 
 }
 

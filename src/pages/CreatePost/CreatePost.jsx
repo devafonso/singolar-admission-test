@@ -2,7 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import "./createPost.css";
-import axios from 'axios'
+import axios from "axios";
+import Swal  from 'sweetalert2/dist/sweetalert2.js';
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,10 +14,7 @@ const validationPost = yup.object().shape({
     .string()
     .required("O título é obrigatório")
     .max(40, "O título precisa ter menosde 40 caracteres"),
-  description: yup
-    .string()
-    .required("A descrição é obrigatório")
-    .max(150, "A descrição precisa ter menosde 150 caracteres"),
+
   content: yup
     .string()
     .required("O conteúdo é obrigatório")
@@ -24,7 +22,7 @@ const validationPost = yup.object().shape({
 });
 
 function CreatePost() {
-    let navigate = useNavigate()
+  let navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -33,14 +31,31 @@ function CreatePost() {
     resolver: yupResolver(validationPost),
   });
 
-  const addPost = data => axios.post('https://jsonplaceholder.typicode.com/posts', data)
-  .then(() => {
-    console.log("Deu certo")
-    navigate("/");
-  })
-  .catch(() => {
-    console.log("Deu errado")
-  })
+  const addPost = (data) =>
+    axios
+      .post("https://jsonplaceholder.typicode.com/posts", data)
+      .then(() => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        
+        Toast.fire({
+          icon: 'success',
+          title: 'Post criado com sucesso!'
+        })
+        navigate("/");
+      })
+      .catch(() => {
+        console.log("Deu errado");
+      });
 
   return (
     <div>
@@ -57,19 +72,11 @@ function CreatePost() {
               <input type="text" name="title" {...register("title")}></input>
               <p className="error-message">{errors.title?.message}</p>
             </div>
+
             <div className="fields">
-              <label>Descricao</label>
-              <input
-                type="text"
-                name="description"
-                {...register("description")}
-              ></input>
-              <p className="error-message">{errors.description?.message}</p>
-            </div>
-            <div className="fields">
-              <label>Conteúdo</label>
+              <label>Descrição</label>
               <textarea
-              placeholder="No que vocë está pensando?..."
+                placeholder="No que vocë está pensando?..."
                 type="text"
                 name="content"
                 {...register("content")}

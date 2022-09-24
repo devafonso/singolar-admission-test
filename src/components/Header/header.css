@@ -6,15 +6,16 @@ button {
     padding: 1rem 1.5rem;
     
     border-radius: 8px;
-    border: 0;
-    background: var(--blue-500);
+    border: 2;
+    background: transparent;
+    border-color: var(--gray-200);
     color: var(--white);
     font-weight: bold;
     cursor: pointer;
-    transition: backgroun-color 0.1s;
+    transition: background-color 0.1s;
 }
 
 button:hover {
     transition: 0.2s;
-    background-color: var(--green-300);
+    background-color: var(--gray-200);
 }

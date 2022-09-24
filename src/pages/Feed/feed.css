@@ -9,18 +9,8 @@ main header {
     max-width: 500px;
 }
 
-img {
-    width: 20px;
-    margin-left: 40px;
 
-    cursor: pointer;
-}
 
-.modal {
-    width: 80px;
-    height: 100px;
-    background-color: white;
-}
 
 main .cards{
     display: flex;
@@ -31,6 +21,7 @@ main .cards{
 }
 
 main .cards .card {
+    
     margin: 0 auto;
 
     background-color: var(--gray-800);
@@ -43,9 +34,11 @@ main .cards .card {
 
 }
 
+
 .cards .card header {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
+    flex-direction: row;
 
     margin-bottom: 15px;
 }
@@ -57,6 +50,7 @@ main .cards .card {
     color: #D2DAF5;
 
     font-size: 1.7rem;
+    margin-left: 1.7rem;
 }
 
 .line {
@@ -99,11 +93,11 @@ p {
 }
 
 .btn-edit button{
-    background-color: #80D8FF;
+    background-color: var(--green-500);
 }
 
 .btn-readmore button{
-    background-color: var(--gray-300);
+    background-color: var(--gray-400);
     
 }
 
