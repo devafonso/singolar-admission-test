@@ -5,7 +5,7 @@ import axios from "axios";
 import { BiTrash } from "react-icons/bi";
 import { FaComments } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
-import Swal  from 'sweetalert2/dist/sweetalert2.js';
+import Swal from "sweetalert2/dist/sweetalert2.js";
 
 import { Link } from "react-router-dom";
 
@@ -30,26 +30,37 @@ function Feed() {
 
   const deletePost = (id) => {
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
-      grow: 'false'
+      title: "Deseja realmente apagar?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, apagar!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
-      }
-    })
-    axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
-    var filtered = posts.filter((post) => post.id !== id);
+        axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
+        var filtered = posts.filter((post) => post.id !== id);
 
-    setPosts(filtered);
+        setPosts(filtered);
+
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "Post deletado com sucesso!",
+        });
+      }
+    });
   };
 
   return (
