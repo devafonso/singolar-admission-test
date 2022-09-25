@@ -8,7 +8,7 @@ button {
     border-radius: 8px;
     border: 2;
     background: transparent;
-    border-color: var(--gray-200);
+    border-color: var(--green-300);
     color: var(--white);
     font-weight: bold;
     cursor: pointer;

@@ -8,12 +8,6 @@ main header {
     max-width: 500px;
 }
 
-img {
-    width: 20px;
-    
-
-    cursor: pointer;
-}
 
 .modal {
     width: 80px;
@@ -29,7 +23,7 @@ main .cards{
     margin-top: 1rem;
 }
 
-main .cards .card {
+main .cards .card-comments {
     margin: 0 auto;
 
     background-color: var(--gray-800);
@@ -42,7 +36,7 @@ main .cards .card {
 
 }
 
-.cards .card header {
+.cards .card-comments header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -28,9 +28,10 @@ function Comments() {
 
       <main>
         <div className="cards">
+          <h1>Comentários</h1>
           {comments.map((comment, key) => {
             return (
-              <div className="card" key={key}>
+              <div className="card-comments" key={key}>
                 <header>
                   <h2>{comment.name}</h2>
                   <p>{comment.email}</p>

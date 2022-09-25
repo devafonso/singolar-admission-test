@@ -8,6 +8,11 @@ header {
     align-items: center;
 }
 
+.linkProfile a h3 {
+    color: var(--white);
+
+}
+
 .name {
     margin-left: 1.5rem;
 }

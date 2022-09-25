@@ -1,25 +1,22 @@
 import React from "react";
+import HeaderMain from "../../components/HeaderMain/HeaderMain";
+import Avatar from "../../components/Avatar/Avatar";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 import { BiTrash } from "react-icons/bi";
 import { FaComments } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 import Swal from "sweetalert2/dist/sweetalert2.js";
-
 import { Link } from "react-router-dom";
 
-import HeaderMain from "../../components/HeaderMain/HeaderMain";
-
 import "./feed.css";
-import Avatar from "../../components/Avatar/Avatar";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/posts?_start=0&_limit=10")
+      .get("https://jsonplaceholder.typicode.com/posts?_start=0&_limit=15")
       .then((response) => {
         setPosts(response.data);
       })
@@ -33,8 +30,8 @@ function Feed() {
       title: "Deseja realmente apagar?",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#00875f",
+      cancelButtonColor: "#8d8d99",
       confirmButtonText: "Sim, apagar!",
     }).then((result) => {
       if (result.isConfirmed) {
